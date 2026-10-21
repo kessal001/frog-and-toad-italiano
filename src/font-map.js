@@ -1,0 +1,1 @@
+window.LOCAL_FONT_CSS = {"Noto Serif": "fonts/noto-serif.css", "Baloo Da 2": "fonts/baloo-da-2/font.css", "Zen Maru Gothic": "fonts/zen-maru-gothic/font.css", "Noto Serif SC": "fonts/noto-serif-sc/font.css"};
