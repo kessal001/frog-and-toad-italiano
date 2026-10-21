@@ -1,4 +1,4 @@
-name: Pubblica il sito su GitHub Pages
+name: Pubblica il reindirizzamento al sito ufficiale
 
 on:
   push:
@@ -24,19 +24,14 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: '24'
-          cache: npm
-      - name: Installa le dipendenze
-        run: npm ci --no-audit --no-fund
-      - name: Compila il sito
-        run: npm run build
-        env:
-          SITE_BASE: /frog-and-toad-italiano/
+      - name: Prepara il reindirizzamento al sito ufficiale
+        run: npm run build:github-pages
       - name: Configura GitHub Pages
         uses: actions/configure-pages@v5
       - name: Prepara la pubblicazione
         uses: actions/upload-pages-artifact@v4
         with:
-          path: dist/client
+          path: dist/github-pages
 
   deploy:
     needs: build
