@@ -6,22 +6,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: '24'
       - name: Apply the five reviewed updates
         run: |
           git config user.name CI
           git config user.email ci@localhost
-          git cherry-pick 560f0c1888ae88693783f716bd7db3837681f48b
-          git cherry-pick ee6f23c09dd1022076f73a872d3f19187dd22420
-          git cherry-pick 51bf1c783c5f4082e5be60864342e42732c1a61d
-          git cherry-pick 3b7792c4be3e2a5d4cc5bba84f49da1c67373b08
-          git cherry-pick 8aa54132b30b4096e775f25aa527462631241533
+          git cherry-pick --empty=drop 560f0c1888ae88693783f716bd7db3837681f48b
+          git cherry-pick --empty=drop ee6f23c09dd1022076f73a872d3f19187dd22420
+          git cherry-pick --empty=drop 51bf1c783c5f4082e5be60864342e42732c1a61d
+          git cherry-pick --empty=drop 3b7792c4be3e2a5d4cc5bba84f49da1c67373b08
+          git cherry-pick --empty=drop 8aa54132b30b4096e775f25aa527462631241533
       - run: npm ci
       - run: npm run test:sites
       - run: npm run build
