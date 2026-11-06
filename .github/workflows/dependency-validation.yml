@@ -23,5 +23,5 @@ jobs:
           git cherry-pick --empty=drop 3b7792c4be3e2a5d4cc5bba84f49da1c67373b08
           git cherry-pick --empty=drop 8aa54132b30b4096e775f25aa527462631241533
       - run: npm ci
-      - run: npm run test:sites
       - run: npm run build
+      - run: npm run test:sites
